@@ -114,7 +114,7 @@ body{
         -webkit-appearance: none;
     }
     .checkBtn::before{
-        content: '\f00d'; font-family: 'Font Awesome 5 Free';
+        content: '\f0c9'; font-family: 'Font Awesome 5 Free';
         font-weight: 900; font-size: 1.9em;
         color: var(--sec-font-color);
     }
