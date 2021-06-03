@@ -124,11 +124,13 @@ body{
 }
 
 .contact{
+    margin-top: 150px;
     text-align: center;
     color: var(--sec-font-color);
 }
 .contact a{
     text-decoration: none;
+    color: var(--sec-font-color);
 }
 @media (max-width: 1250px){
     .main img{ width: 25em; right: 10; height: 23em; }
