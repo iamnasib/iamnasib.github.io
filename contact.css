@@ -61,32 +61,35 @@ body{
     border-radius: 10px;
     border-bottom: 1px solid #2cffba;
 }
-.contact{
+.about{
     width: 100%;
-    padding: 8em 10em;
+    padding: 8em 0;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: start;
 }
-.contact .heading{
+.about .box_wrap{
+    margin: 2em 0;
+}
+.about .box_wrap .heading{
     font-size: 3em;
     margin-bottom: 0.5em;
     position: relative;
 }
-.contact .heading::before{
+.about .box_wrap .heading::before{
     content: '';
     position: absolute;
     bottom: 2px;
     left: 0;
-    width: 105px;
+    width: 80px;
     height: 6px;
     background: var(--main-color);
     z-index: -1;
 }
-.detail{
-    margin: 2em 0;
+.about .box_wrap .text{
     color: var(--sec-font-color);
-    line-height: 25px;
+}
+.about .box_wrap{
     width: 35%;
 }
 @media (max-width: 1000px){
