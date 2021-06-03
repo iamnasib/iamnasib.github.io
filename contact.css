@@ -89,7 +89,7 @@ body{
 .about .box_wrap .text{
     color: var(--sec-font-color);
 }
-.about .box_wrap p a{
+.about .box_wrap span a{
     text-decoration: none;
 }
 .about .box_wrap{
