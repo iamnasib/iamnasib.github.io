@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Work+Sans&display=swap');
+@import url("https://use.fontawesome.com/releases/v5.15.3/css/all.css");
+*{
+    margin: 0;
+    padding: 0;
+    box-shadow: border-box;
+    scroll-behavior: smooth;
+}
+:root{
+    --font: 'Montserrat', sans-serif;
+    --prime-font: 'Work Sans', sans-serif;
+    --bg: #1a1c20;
+    --main-color: #2cffba;
+    --main-font-color: #fdfbfb;
+    --sec-font-color: #fcf1f1b4;
+}
+body{
+    background: var(--bg);
+    font-family: var(--font);
+    color: var(--main-font-color);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* navbar */
+.nav {
+    width: 85%;
+    height: 70px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+.checkBtn{
+    display: none;
+}
+.nav .logo{
+    font-size: 2em;
+}
+.nav ol{
+    list-style: none;
+}
+.nav ol a{
+    text-decoration: none;
+    color: var(--sec-font-color);
+    margin: 0.3em;
+    padding: 0.5em 1.5em;
+    border-radius: 10px;
+}
+.nav ol a:hover{
+    transition: background .8s;
+    background: var(--main-color);
+    color: black;
+}
+.active{
+    text-decoration: none;
+    color: var(--sec-font-color);
+    margin: 0.3em;
+    padding: 0.5em 1.5em;
+    border-radius: 10px;
+    border-bottom: 1px solid #2cffba;
+}
+.about{
+    width: 100%;
+    padding: 8em 0;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: start;
+}
+.about .box_wrap{
+    margin: 2em 0;
+}
+.about .box_wrap .heading{
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    position: relative;
+}
+.about .box_wrap .heading::before{
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 80px;
+    height: 6px;
+    background: var(--main-color);
+    z-index: -1;
+}
+.about .box_wrap .text{
+    color: var(--sec-font-color);
+}
+.about .box_wrap{
+    width: 35%;
+}
+.skills_box i{
+    margin-right: 0.5em;
+    margin-bottom: .5em;
+    color: var(--sec-font-color);
+}
+.skills_box ul li{
+    line-height: 22px;
+    font-size: 16px;
+    color: #fcf1f1b4;
+}
+@media (max-width: 1000px){
+    body{ font-size: 14px; }
+    .main img{ width: 35em; top: 80px; }
+    .main{ align-items: flex-end; }
+    .checkBtn{
+        display: block; width: 25px;
+        height: 25px; cursor: pointer;
+        position: relative; appearance: none;
+        -webkit-appearance: none;
+    }
+    .checkBtn::before{
+        content: "\f106"; font-family: 'Font Awesome 5 Free';
+        font-weight: 900; font-size: 1.9em;
+        color: var(--sec-font-color);
+    }
+    .checkBtn:checked::before{ content: '\f039'; }
+    .nav ol{
+        position: absolute; width: 100%;
+        flex-direction: column;  background: var(--bg);
+        top: 80px; left: 0;
+        z-index: 100; padding: 1.2em 0;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); transition: clip-path .4s;
+    }
+    .checkBtn:checked ~ ol{ clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    .nav ol::before{
+        content: '';  position: absolute;
+        bottom: 0; left: 0;
+        width: 100%;  height: 5px;
+        background: var(--main-color);
+    }
+}
+@media (max-width: 900px){
+    .main img{
+        width: 30em;
+    }   
+    .about .box_wrap, .education .left_box, .education .right_box{
+        width: 60%;
+    }
+}
+@media (max-width: 600px){
+    .main img{
+        width: 22em;
+    }
+}
+@media (max-width: 400px){
+    body{
+        font-size: 10px;
+    }
+    .main{
+        height: 450px;
+    }
+}

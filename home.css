@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Work+Sans&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-shadow: border-box;
+    scroll-behavior: smooth;
+}
+:root{
+    --font: 'Montserrat', sans-serif;
+    --prime-font: 'Work Sans', sans-serif;
+    --bg: #1a1c20;
+    --main-color: #2cffba;
+    --main-font-color: #fdfbfb;
+    --sec-font-color: #fcf1f1b4;
+}
+body{
+    background: var(--bg);
+    font-family: var(--font);
+    color: var(--main-font-color);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* navbar */
+.nav {
+    width: 85%;
+    height: 70px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+.checkBtn{
+    display: none;
+}
+.nav .logo{
+    font-size: 2em;
+}
+.nav ol{
+    list-style: none;
+}
+.nav ol .a{
+    text-decoration: none;
+    color: var(--sec-font-color);
+    margin: 0.3em;
+    padding: 0.5em 1.5em;
+    border-radius: 10px;
+}
+.nav ol .a:hover, .nav ol .active:hover {
+    transition: background .8s;
+    background: var(--main-color);
+    color: black;
+}
+.active{
+    text-decoration: none;
+    color: var(--sec-font-color);
+    margin: 0.3em;
+    padding: 0.5em 1.5em;
+    border-radius: 10px;
+    border-bottom: 1px solid #2cffba;
+}
+/* mains section */
+.main{
+    width: 85%;
+    height: 650px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.main::before, .main::after{
+    content: '';
+    width: 80%;
+    height: 70%;
+    background: #151618;
+    position: absolute;
+    bottom: 0;
+    right: -10%;
+    z-index: -10;
+}
+.main::after{
+    background: #15161885;
+    height: 65%;
+    top: 20px;
+    left: -40%;
+    border-top: 1px solid #2cffba;
+    border-right: 1px solid #4985c9;
+    z-index: -11;
+}
+.box h1{
+    font-size: 4.5em;
+    margin-bottom: 0.2em;
+}
+.box p{
+    font-size: 1.2em;
+    color: var(--sec-font-color);
+    margin-bottom: 1.2em;
+}
+.box .btn{
+    font-size: 1.2em;
+    background: none;
+    color: var(--sec-font-color);
+    border: none;
+    cursor: pointer;
+    border: 1px solid var(--main-color);
+    width: 7em;
+    height: 2.2em;  
+    transition: all .4s;
+}
+.box .btn:hover{
+    background: var(--main-color);
+    color: black;
+}
+.main img{
+    width: 35em;
+    height: 30em;
+    position: absolute;
+    right: 60px;
+    z-index: -1;
+}
+
+/* about */
+
+
+/* education */
+.education{
+    width: 100%;
+    background: #151618;
+    padding: 5em 0;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.education .left_box{
+    width: 20%;
+}
+.education .left_box .container{
+    margin: 2em 0;
+}
+.education .heading{
+    font-size: 3em;
+}
+.education :is(h3, small, p){
+    margin: 0.5em 0;
+}
+.left_box .container{
+    position: relative;
+}
+.left_box .container::before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 100%;
+    background: var(--main-color);
+    left: -20px;
+}
+
+.education :is(small, p){
+    color: var(--sec-font-color);
+}
+.education .right_box{
+    width: 40%;
+}
+.education .right_box img{
+    width: 100%;
+}
+
+@media (max-width: 1250px){
+    .main img{ width: 25em; right: 10; height: 23em; }
+}
+@media (max-width: 1000px){
+    body{ font-size: 14px; }
+    .main img{ width: 35em; top: 80px; height: 30em; }
+    .main{ align-items: flex-end; }
+    .checkBtn{
+        display: block; width: 25px;
+        height: 25px; cursor: pointer;
+        position: relative; appearance: none;
+        -webkit-appearance: none;
+    }
+    .checkBtn::before{
+        content: '\f0c9'; font-family: 'Font Awesome 5 Free';
+        font-weight: 700; font-size: 1.9em;
+        color: var(--sec-font-color);
+    }
+    .checkBtn:checked::before{ content: '\f00d'; }
+    .nav ol{
+        position: absolute; width: 100%;
+        flex-direction: column;  background: var(--bg);
+        top: 80px; left: 0;
+        z-index: 100; padding: 1.2em 0;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); transition: clip-path .4s;
+    }
+    .checkBtn:checked ~ ol{ clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    .nav ol::before{
+        content: '';  position: absolute;
+        bottom: 0; left: 0;
+        width: 100%;  height: 5px;
+        background: var(--main-color);
+    }
+}
+@media (max-width: 900px){
+    .main img{
+        width: 30em;
+        width: 26em;
+    }   
+    .about .box_wrap, .education .left_box, .education .right_box{
+        width: 60%;
+    }
+}
+@media (max-width: 600px){
+    .main img{
+        width: 22em;
+        height: 21em;
+    }
+}
+@media (max-width: 400px){
+    body{
+        font-size: 10px;
+    }
+    .main{
+        height: 450px;
+    }
+}
