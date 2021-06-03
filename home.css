@@ -123,51 +123,13 @@ body{
     z-index: -1;
 }
 
-/* about */
-
-
-/* education */
-.education{
-    width: 100%;
-    background: #151618;
-    padding: 5em 0;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-.education .left_box{
-    width: 20%;
-}
-.education .left_box .container{
-    margin: 2em 0;
-}
-.education .heading{
-    font-size: 3em;
-}
-.education :is(h3, small, p){
-    margin: 0.5em 0;
-}
-.left_box .container{
-    position: relative;
-}
-.left_box .container::before{
-    content: '';
-    position: absolute;
-    width: 8px;
-    height: 100%;
-    background: var(--main-color);
-    left: -20px;
-}
-
-.education :is(small, p){
+.contact{
+    text-align: center;
     color: var(--sec-font-color);
 }
-.education .right_box{
-    width: 40%;
+.contact a{
+    text-decoration: none;
 }
-.education .right_box img{
-    width: 100%;
-}
-
 @media (max-width: 1250px){
     .main img{ width: 25em; right: 10; height: 23em; }
 }
