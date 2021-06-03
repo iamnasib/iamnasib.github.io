@@ -100,11 +100,11 @@ body{
         -webkit-appearance: none;
     }
     .checkBtn::before{
-        content: '\f0c9'; font-family: 'Font Awesome 5 Free';
+        content: '\f078'; font-family: 'Font Awesome 5 Free';
         font-weight: 700; font-size: 1.9em;
         color: var(--sec-font-color);
     }
-    .checkBtn:checked::before{ content: '\f00d'; }
+    .checkBtn:checked::before{ content: '\f078'; }
     .nav ol{
         position: absolute; width: 100%;
         flex-direction: column;  background: var(--bg);
