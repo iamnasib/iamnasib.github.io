@@ -93,6 +93,10 @@ body{
     text-decoration: none;
     color: var(--sec-font-color);
 }
+.about .box_wrap .text a:hover{
+    transition: background .8s;
+    color: var(--main-color);
+}
 .about .box_wrap{
     width: 35%;
 }
