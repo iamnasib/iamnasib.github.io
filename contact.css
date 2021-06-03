@@ -89,6 +89,9 @@ body{
 .about .box_wrap .text{
     color: var(--sec-font-color);
 }
+.about .box_wrap p a{
+    text-decoration: none;
+}
 .about .box_wrap{
     width: 35%;
 }
