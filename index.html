@@ -6,7 +6,12 @@
     <title>Portfolio Website</title>
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-   
+    <script>
+        function display(){
+           document.getElementById("bt").style.marginLeft="0";
+           
+        }
+    </script>
 </head>
 <body>
     <header class="nav center">
@@ -21,8 +26,8 @@
     <section class="main">
         <div class="box">
             <h1>Nasib Farooq</h1>
-            <p>Web developer and designer</p>
-            <button class="btn">About</button>
+            <p id="bt">Web developer and designer</p>
+            <button onclick="display()" class="btn">About</button>
         </div>
         <img src="img.jpeg" alt="">
     </section>
