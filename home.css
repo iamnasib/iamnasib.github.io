@@ -132,6 +132,10 @@ body{
     text-decoration: underline;
     color: var(--sec-font-color);
 }
+.contact a:hover{
+    text-decoration: underline;
+    color: var(--main-color);
+}
 @media (max-width: 1250px){
     .main img{ width: 25em; right: 10; height: 23em; }
 }
