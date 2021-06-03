@@ -127,7 +127,7 @@ body{
 @media (max-width: 1000px){
     body{ font-size: 14px; }
     .main img{ width: 35em; top: 80px; height: 30em; }
-    .main{ align-items: flex-end; }
+    .main{ align-items: flex-end;margin-top: 40px; }
     .checkBtn{
         display: block; width: 25px;
         height: 25px; cursor: pointer;
