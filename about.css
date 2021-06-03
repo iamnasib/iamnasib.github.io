@@ -133,6 +133,9 @@ body{
         width: 100%;  height: 5px;
         background: var(--main-color);
     }
+    .about{
+        margin-top: 40px;
+    }
 }
 @media (max-width: 900px){
     .main img{
