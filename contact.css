@@ -92,6 +92,7 @@ body{
 .about .box_wrap .text a{
     text-decoration: none;
     color: var(--sec-font-color);
+    line-spacing: 10px;
 }
 .about .box_wrap .text a:hover{
     transition: background .8s;
