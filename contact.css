@@ -94,9 +94,17 @@ body{
     color: var(--sec-font-color);
     line-spacing: 10px;
 }
-.about .box_wrap .text a:hover{
+#insta{
     transition: background .8s;
-    color: var(--main-color);
+    color: #fb3958;
+}
+#fb{
+    transition: background .8s;
+    color: #4267B2;
+}
+#twitter{
+    transition: background .8s;
+    color: #1DA1F2;
 }
 .about .box_wrap{
     width: 35%;
