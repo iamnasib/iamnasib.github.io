@@ -94,15 +94,15 @@ body{
     color: var(--sec-font-color);
     line-spacing: 10px;
 }
-#insta{
+#insta:hover{
     transition: background .8s;
     color: #fb3958;
 }
-#fb{
+#fb:hover{
     transition: background .8s;
     color: #4267B2;
 }
-#twitter{
+#twitter:hover{
     transition: background .8s;
     color: #1DA1F2;
 }
