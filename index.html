@@ -8,7 +8,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script>
         function display(){
-           document.getElementById("bt").style.marginLeft="0";
+           let count=0;
+           if(count==0)
+           { 
+             document.getElementById("bt").style.marginLeft="0";
+             count=1;
+           }
+           else if(count==0)
+           { 
+             document.getElementById("bt").style.marginLeft="0";
+             count=0;
+           }
+             
            
         }
     </script>
@@ -28,8 +39,9 @@
             <h1>Nasib Farooq</h1>
             <p id="bt">Web developer and designer</p>
             <button onclick="display()" class="btn">About</button>
+            <img src="img.jpeg" alt="">
         </div>
-        <img src="img.jpeg" alt="">
+        
     </section>
     <div class="contact">
        <a href="contact.html">Contact Me</a>
