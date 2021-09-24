@@ -138,6 +138,7 @@ body{
 }
 @media (max-width: 1250px){
     .main img{ width: 25em; right: 10; height: 23em; }
+    .contact{margin-top: 200px;}
 }
 @media (max-width: 1000px){
     body{ font-size: 14px; }
