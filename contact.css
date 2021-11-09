@@ -106,6 +106,10 @@ body{
     transition: background .8s;
     color: #1DA1F2;
 }
+#linkidin:hover{
+    transition: background .8s;
+    color: #0e76a8;
+}
 .about .box_wrap{
     width: 35%;
 }
