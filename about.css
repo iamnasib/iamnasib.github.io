@@ -103,6 +103,10 @@ body{
     font-size: 16px;
     color: #fcf1f1b4;
 }
+.skills_box #site{
+    color: blue;
+    text-decoration: none;
+}
 @media (max-width: 1000px){
     body{ font-size: 14px; }
     .main img{ width: 35em; top: 80px; }
