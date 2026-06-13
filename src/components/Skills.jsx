@@ -4,7 +4,7 @@ import SectionHeading from './SectionHeading'
 export default function Skills() {
   return (
     <section id="skills" className="mx-auto max-w-6xl px-6 py-24">
-      <SectionHeading index="04 /" title="Skills & Tools" />
+      <SectionHeading index="04 /" title="Skills &amp; Tools" />
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {skills.map((s) => (
           <div

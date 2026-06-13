@@ -3,7 +3,7 @@ import Nav from './components/Nav'
 import Hero from './components/Hero'
 import About from './components/About'
 import Projects from './components/Projects'
-import BubbleWork from './components/BubbleWork'
+import Experience from './components/Experience'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -18,7 +18,7 @@ export default function App() {
         <Hero />
         <About />
         <Projects />
-        <BubbleWork />
+        <Experience />
         <Skills />
         <Contact />
       </main>

@@ -8,7 +8,9 @@ function StatusBadge({ status }) {
       ? 'border-emerald-accent/40 bg-emerald-accent/10 text-emerald-soft'
       : status === 'Building in public'
         ? 'border-amber-400/30 bg-amber-400/10 text-amber-300'
-        : 'border-line bg-slate-elev text-ink-dim'
+        : status === 'In testing'
+          ? 'border-blue-400/30 bg-blue-400/10 text-blue-300'
+          : 'border-line bg-slate-elev text-ink-dim'
   return (
     <span className={`rounded-full border px-2.5 py-0.5 font-mono text-[11px] ${tone}`}>
       {status}
@@ -35,14 +37,11 @@ function ProjectHeader({ p }) {
   return (
     <div className="flex flex-wrap items-start justify-between gap-4">
       <div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <h3 className="text-2xl font-bold tracking-tight">{p.name}</h3>
           <StatusBadge status={p.status} />
         </div>
-        <p className="mt-1 font-mono text-sm text-emerald-soft">
-          {p.type}
-          {p.period && <span className="text-ink-dim"> · {p.period}</span>}
-        </p>
+        <p className="mt-1 font-mono text-sm text-emerald-soft">{p.type}</p>
       </div>
       {p.href && (
         <a
@@ -63,18 +62,25 @@ function FlagshipCard({ p }) {
   return (
     <article className="reveal glow rounded-2xl border border-line bg-slate-surface p-7 md:p-9">
       <ProjectHeader p={p} />
+
+      {p.tagline && (
+        <p className="mt-2 font-mono text-xs italic text-ink-dim">"{p.tagline}"</p>
+      )}
+
       <p className="mt-5 max-w-3xl text-pretty text-lg leading-relaxed text-ink-dim">
         {p.summary}
       </p>
 
-      <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2">
+      {/* AI subsystems */}
+      <h4 className="mt-8 font-mono text-xs uppercase tracking-wider text-ink-dim">AI Subsystems</h4>
+      <div className="mt-3 grid grid-cols-1 gap-5 md:grid-cols-2">
         {p.subsystems.map((sub) => (
           <div
             key={sub.name}
             className="rounded-xl border border-line bg-slate-bg/50 p-5 transition-colors hover:border-emerald-accent/30"
           >
             <div className="flex items-baseline gap-2">
-              <h4 className="font-mono text-lg font-semibold text-emerald-soft">{sub.name}</h4>
+              <h5 className="font-mono text-lg font-semibold text-emerald-soft">{sub.name}</h5>
               <span className="text-xs text-ink-dim">{sub.kicker}</span>
             </div>
             <ul className="mt-4 space-y-3">
@@ -88,6 +94,21 @@ function FlagshipCard({ p }) {
           </div>
         ))}
       </div>
+
+      {/* Platform engineering breadth */}
+      {p.platformWork?.length > 0 && (
+        <>
+          <h4 className="mt-8 font-mono text-xs uppercase tracking-wider text-ink-dim">Platform Engineering</h4>
+          <ul className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+            {p.platformWork.map((pt, i) => (
+              <li key={i} className="flex gap-3 text-sm leading-relaxed text-ink-dim">
+                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-emerald-accent/60" />
+                {pt}
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
 
       <StackRow stack={p.stack} />
     </article>
