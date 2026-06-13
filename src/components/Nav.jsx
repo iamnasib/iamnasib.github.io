@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { profile } from '../data/content'
+import useActiveSection from '../hooks/useActiveSection'
 
 const links = [
   { id: 'about', label: 'About' },
@@ -9,9 +10,12 @@ const links = [
   { id: 'contact', label: 'Contact' },
 ]
 
+const SECTION_IDS = links.map((l) => l.id)
+
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const active = useActiveSection(SECTION_IDS)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16)
@@ -39,8 +43,16 @@ export default function Nav() {
             <li key={l.id}>
               <a
                 href={`#${l.id}`}
-                className="font-mono text-sm text-ink-dim transition-colors hover:text-emerald-soft"
+                aria-current={active === l.id ? 'true' : undefined}
+                className={`font-mono text-sm transition-colors ${
+                  active === l.id
+                    ? 'text-emerald-soft'
+                    : 'text-ink-dim hover:text-emerald-soft'
+                }`}
               >
+                <span className={active === l.id ? 'text-emerald-accent' : 'text-emerald-accent/0'}>
+                  /
+                </span>
                 {l.label}
               </a>
             </li>
