@@ -10,7 +10,7 @@
   --color-ink-dim: #9aa6a2;
   --color-line: #1e2724;
 
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
@@ -24,6 +24,11 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+
+/* Headings carry the monospace "terminal" voice */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-mono);
 }
 
 /* Dotted grid backdrop */

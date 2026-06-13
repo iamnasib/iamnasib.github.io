@@ -17,7 +17,7 @@ export default function Hero() {
             Available for AI engineering work
           </p>
 
-          <h1 className="text-balance text-5xl font-extrabold leading-[1.05] tracking-tight md:text-7xl">
+          <h1 className="text-balance text-5xl font-bold leading-[1.05] tracking-tighter md:text-6xl">
             {profile.name}
           </h1>
 

@@ -32,8 +32,8 @@ const og = `
     <tspan fill="#10b981">$</tspan> whoami
   </text>
 
-  <!-- name -->
-  <text x="78" y="270" font-family="DejaVu Sans, sans-serif" font-size="104" font-weight="bold" fill="#e5e7eb">Nasib Farooq</text>
+  <!-- name (monospace = on-brand) -->
+  <text x="78" y="265" font-family="DejaVu Sans Mono, monospace" font-size="86" font-weight="bold" fill="#e5e7eb">Nasib Farooq</text>
 
   <!-- role -->
   <text x="82" y="345" font-family="DejaVu Sans Mono, monospace" font-size="42" fill="#34d399">AI Engineer</text>
