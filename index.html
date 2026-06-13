@@ -1,51 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nasib Farooq</title>
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script>
-        let count=0;
-        function display(){
-           if(count==0)
-           { 
-             document.getElementById("bt").style.marginLeft="0";
-             count=1;
-           }
-           else if(count==1)
-           { 
-             document.getElementById("bt").style.marginLeft="-800px";
-             count=0;
-           }
-             
-           
-        }
-    </script>
-</head>
-<body>
-    <header class="nav center">
-        <p class="logo">Nasib Farooq</p>
-        <input type="checkbox" name="" class="checkBtn"/>
-        <ol class="center">
-            <a class="active"   href="index.html"><li>Home</li></a>
-            <a class="a" href="about.html"><li>About</li></a>
-            <a  class="a" href="contact.html"><li>Contact</li></a>
-        </ol>
-    </header>
-    <section class="main">
-        <div class="box">
-            <h1>Nasib Farooq</h1>
-            <p id="bt">Full stack developer</p>
-            <button onclick="display()" class="btn">About</button>
-            <img src="img.jpeg" alt="">
-        </div>
-        
-    </section>
-    <div class="contact">
-       <a href="contact.html">Contact Me</a>
-    </div>
-     
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Nasib Farooq — AI Engineer</title>
+    <meta
+      name="description"
+      content="Nasib Farooq — AI Engineer building production AI systems: voice agents, RAG pipelines, and multi-agent reasoning. Creator of CELIA & CANDI (ConnectiumAI)."
+    />
+    <meta name="author" content="Nasib Farooq" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Nasib Farooq — AI Engineer" />
+    <meta
+      property="og:description"
+      content="Building production AI systems: voice agents, RAG pipelines, and multi-agent reasoning."
+    />
+    <meta property="og:url" content="https://iamnasib.github.io" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Nasib Farooq — AI Engineer" />
+    <meta
+      name="twitter:description"
+      content="Building production AI systems: voice agents, RAG pipelines, and multi-agent reasoning."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

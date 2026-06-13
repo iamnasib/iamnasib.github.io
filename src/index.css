@@ -1,0 +1,82 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-slate-bg: #0b0f0e;
+  --color-slate-surface: #0f1513;
+  --color-slate-elev: #131a18;
+  --color-emerald-accent: #10b981;
+  --color-emerald-soft: #34d399;
+  --color-ink: #e5e7eb;
+  --color-ink-dim: #9aa6a2;
+  --color-line: #1e2724;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-slate-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Dotted grid backdrop */
+.bg-grid {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(16, 185, 129, 0.08) 1px,
+    transparent 0
+  );
+  background-size: 32px 32px;
+}
+
+/* Emerald glow utility */
+.glow {
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.15),
+    0 18px 60px -20px rgba(16, 185, 129, 0.35);
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Blinking cursor */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.cursor {
+  display: inline-block;
+  width: 0.6ch;
+  background: var(--color-emerald-accent);
+  animation: blink 1.1s step-end infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-slate-bg); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover { background: #2a3531; }
+
+::selection {
+  background: rgba(16, 185, 129, 0.25);
+  color: #ecfdf5;
+}
