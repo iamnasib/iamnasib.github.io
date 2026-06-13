@@ -7,6 +7,7 @@ export default function Contact() {
     <section id="contact" className="mx-auto max-w-6xl px-6 py-24">
       <SectionHeading index="05 /" title="Get in touch" />
 
+
       <div className="reveal glow relative overflow-hidden rounded-2xl border border-line bg-slate-surface p-8 md:p-12">
         <div
           className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full opacity-30 blur-[100px]"
