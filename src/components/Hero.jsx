@@ -79,7 +79,8 @@ export default function Hero() {
             <p className="text-ink-dim">
               <span className="text-emerald-accent">$</span> whoami
             </p>
-            <p className="text-ink">ai_engineer @ hotsourced.io</p>
+            <p className="text-ink">bubble_dev @ hotsourced.io</p>
+            <p className="text-ink-dim text-xs mt-0.5"># building toward AI eng full-time</p>
             <p className="mt-2 text-ink-dim">
               <span className="text-emerald-accent">$</span> cat stack.txt
             </p>
