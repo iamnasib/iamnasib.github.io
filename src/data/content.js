@@ -8,8 +8,6 @@ export const profile = {
   tagline: 'I build production AI systems that listen, reason, and decide.',
   location: 'Srinagar, India',
   email: 'nasibfarooq@gmail.com',
-  // Replace /profile-placeholder.svg with your real photo in /public.
-  photo: '/profile-placeholder.svg',
   socials: {
     github: 'https://github.com/iamnasib',
     linkedin: 'https://www.linkedin.com/in/iamnasib',
