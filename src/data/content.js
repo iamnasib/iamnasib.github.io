@@ -8,6 +8,7 @@ export const profile = {
   tagline: 'I build production AI systems that listen, reason, and decide.',
   location: 'Srinagar, India',
   email: 'nasibfarooq@gmail.com',
+  resume: '/Nasib_Farooq_CV.pdf',
   socials: {
     github: 'https://github.com/iamnasib',
     linkedin: 'https://www.linkedin.com/in/iamnasib',

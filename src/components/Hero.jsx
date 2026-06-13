@@ -1,5 +1,5 @@
 import { profile } from '../data/content'
-import { GitHubIcon, LinkedInIcon, ArrowIcon } from './icons'
+import { GitHubIcon, LinkedInIcon, ArrowIcon, DownloadIcon } from './icons'
 
 export default function Hero() {
   return (
@@ -39,10 +39,12 @@ export default function Hero() {
               <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
-              href={`mailto:${profile.email}`}
+              href={profile.resume}
+              download
               className="inline-flex items-center gap-2 rounded-md border border-line px-5 py-2.5 font-medium text-ink transition-colors hover:border-emerald-accent/50 hover:text-emerald-soft"
             >
-              Contact
+              <DownloadIcon className="h-4 w-4" />
+              Download CV
             </a>
             <div className="ml-1 flex items-center gap-1">
               <a
