@@ -13,7 +13,18 @@ function ExperienceItem({ item, isLast }) {
       <div className={`pb-10 ${isLast ? '' : ''}`}>
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <h3 className="font-semibold text-ink">{item.role}</h3>
-          <span className="text-emerald-soft">@ {item.company}</span>
+          {item.companyHref ? (
+            <a
+              href={item.companyHref}
+              target="_blank"
+              rel="noreferrer"
+              className="text-emerald-soft transition-opacity hover:opacity-75"
+            >
+              @ {item.company}
+            </a>
+          ) : (
+            <span className="text-emerald-soft">@ {item.company}</span>
+          )}
         </div>
         <div className="mt-0.5 flex flex-wrap gap-x-3 gap-y-0.5 font-mono text-xs text-ink-dim">
           <span>{item.period}</span>

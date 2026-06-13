@@ -37,10 +37,11 @@ export const experience = [
   {
     role: 'Bubble Developer',
     company: 'Hotsourced',
+    companyHref: 'https://hotsourced.io',
     location: 'Remote · London, UK',
     period: 'April 2026 – Present',
     points: [
-      'Building and maintaining production Bubble.io applications for clients.',
+      'Building and maintaining production Bubble.io applications.',
     ],
   },
   {
@@ -85,13 +86,6 @@ export const experience = [
       'Posttrex: Social media web app.',
       'Shagoo Designs: Static website for an interior design business.',
     ],
-  },
-  {
-    role: 'FlutterFlow Developer',
-    company: 'Freelance',
-    location: 'Remote',
-    period: 'Feb 2024 – Jun 2024',
-    points: [],
   },
 ]
 
@@ -196,7 +190,7 @@ export const skills = [
   },
   {
     group: 'Databases',
-    items: ['MongoDB', 'SQL', 'PostgreSQL', 'ChromaDB'],
+    items: ['MongoDB', 'SQL', 'PostgreSQL', 'Qdrant', 'ChromaDB'],
   },
 ]
 
