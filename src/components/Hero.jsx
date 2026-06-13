@@ -1,5 +1,5 @@
 import { profile } from '../data/content'
-import { GitHubIcon, LinkedInIcon, ArrowIcon } from './icons'
+import { GitHubIcon, LinkedInIcon, ArrowIcon, DownloadIcon } from './icons'
 
 export default function Hero() {
   return (
@@ -12,25 +12,25 @@ export default function Hero() {
 
       <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-6 pt-28 pb-20 md:grid-cols-[1.4fr_1fr] md:pt-20">
         <div>
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-line bg-slate-surface/60 px-3 py-1 font-mono text-xs text-emerald-soft">
+          <p className="enter mb-5 inline-flex items-center gap-2 rounded-full border border-line bg-slate-surface/60 px-3 py-1 font-mono text-xs text-emerald-soft" style={{ animationDelay: '0.05s' }}>
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-accent" />
             Available for AI engineering work
           </p>
 
-          <h1 className="text-balance text-5xl font-extrabold leading-[1.05] tracking-tight md:text-7xl">
+          <h1 className="enter text-balance text-5xl font-bold leading-[1.05] tracking-tighter md:text-6xl" style={{ animationDelay: '0.15s' }}>
             {profile.name}
           </h1>
 
-          <p className="mt-4 font-mono text-lg text-emerald-soft md:text-xl">
+          <p className="enter mt-4 font-mono text-lg text-emerald-soft md:text-xl" style={{ animationDelay: '0.25s' }}>
             {profile.role}
             <span className="cursor">&nbsp;</span>
           </p>
 
-          <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink-dim">
+          <p className="enter mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink-dim" style={{ animationDelay: '0.35s' }}>
             {profile.tagline}
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-3">
+          <div className="enter mt-9 flex flex-wrap items-center gap-3" style={{ animationDelay: '0.45s' }}>
             <a
               href="#work"
               className="group inline-flex items-center gap-2 rounded-md bg-emerald-accent px-5 py-2.5 font-medium text-slate-bg transition-transform hover:-translate-y-0.5"
@@ -39,10 +39,12 @@ export default function Hero() {
               <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
-              href={`mailto:${profile.email}`}
+              href={profile.resume}
+              download
               className="inline-flex items-center gap-2 rounded-md border border-line px-5 py-2.5 font-medium text-ink transition-colors hover:border-emerald-accent/50 hover:text-emerald-soft"
             >
-              Contact
+              <DownloadIcon className="h-4 w-4" />
+              Download CV
             </a>
             <div className="ml-1 flex items-center gap-1">
               <a
@@ -68,7 +70,7 @@ export default function Hero() {
         </div>
 
         {/* Terminal card */}
-        <div className="glow rounded-xl border border-line bg-slate-surface/70 p-1 backdrop-blur-sm">
+        <div className="enter glow rounded-xl border border-line bg-slate-surface/70 p-1 backdrop-blur-sm" style={{ animationDelay: '0.55s' }}>
           <div className="flex items-center gap-1.5 px-3 py-2">
             <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />

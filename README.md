@@ -23,8 +23,18 @@ src/data/content.js
 
 Edit that file to update text — no need to touch the components.
 
-To change the profile photo, replace `public/profile-placeholder.svg`
-with your image and update `profile.photo` in `src/data/content.js`.
+To update the CV, replace `public/Nasib_Farooq_CV.pdf`.
+
+## Social / SEO assets
+
+`public/og-image.png` and `public/apple-touch-icon.png` are generated
+from `scripts/gen-assets.mjs`:
+
+```bash
+node scripts/gen-assets.mjs
+```
+
+Re-run after changing the name/role/tagline so the share card stays in sync.
 
 ## Deployment
 
@@ -44,6 +54,7 @@ src/
   index.css            Theme + Tailwind
   data/content.js      ← all editable content
   hooks/useReveal.js   Scroll-reveal animation
-  components/          Nav, Hero, About, Projects, Skills, Contact, Footer
-public/                favicon, profile image, .nojekyll
+  components/          Nav, Hero, About, Projects, Experience, Skills, Contact, Footer
+scripts/gen-assets.mjs  Generates og-image.png + apple-touch-icon.png
+public/                favicon, OG image, CV, robots.txt, sitemap.xml, .nojekyll
 ```

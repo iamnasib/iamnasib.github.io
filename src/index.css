@@ -10,7 +10,7 @@
   --color-ink-dim: #9aa6a2;
   --color-line: #1e2724;
 
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
@@ -24,6 +24,11 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+
+/* Headings carry the monospace "terminal" voice */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-mono);
 }
 
 /* Dotted grid backdrop */
@@ -55,6 +60,16 @@ body {
   transform: none;
 }
 
+/* Orchestrated hero entrance (staggered via inline animation-delay) */
+@keyframes enter-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.enter {
+  opacity: 0;
+  animation: enter-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
 /* Blinking cursor */
 @keyframes blink {
   0%, 49% { opacity: 1; }
@@ -79,4 +94,27 @@ body {
 ::selection {
   background: rgba(16, 185, 129, 0.25);
   color: #ecfdf5;
+}
+
+/* Visible keyboard focus over the dark theme */
+:focus-visible {
+  outline: 2px solid var(--color-emerald-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .cursor { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
