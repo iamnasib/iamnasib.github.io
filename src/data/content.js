@@ -149,17 +149,7 @@ export const projects = [
       'A LangGraph-based agent that generates web apps from a prompt. Roadmap: SQLite checkpointing, human-in-the-loop via interrupt(), per-file output, tool calling.',
     points: [],
     stack: ['LangGraph', 'Python', 'Agents'],
-  },
-  {
-    name: 'CMG Compass',
-    type: 'Freelance · Business Assessment MVP',
-    status: 'In testing',
-    href: null,
-    summary:
-      'A prototype business assessment platform with domain-based COMPASS evaluation and financial analysis using NAICS benchmarks. Integrated Claude AI to generate structured reports and Stripe for one-time purchases and subscription plans.',
-    points: [],
-    stack: ['Bubble.io', 'Claude AI', 'Stripe', 'NAICS'],
-  },
+  }
 ]
 
 // ─── SKILLS ──────────────────────────────────────────────────
