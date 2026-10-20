@@ -1,25 +1,25 @@
-import useReveal from './hooks/useReveal'
-import Nav from './components/Nav'
-import Hero from './components/Hero'
-import About from './components/About'
-import Projects from './components/Projects'
-import Experience from './components/Experience'
-import Skills from './components/Skills'
+import Masthead from './components/Masthead'
+import Intro from './components/Intro'
+import { Candi, Celia } from './components/CaseStudies'
+import Platform from './components/Platform'
+import Side from './components/Side'
+import WorkLog from './components/WorkLog'
+import Toolbox from './components/Toolbox'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 export default function App() {
-  useReveal()
-
   return (
     <>
-      <Nav />
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Experience />
-        <Skills />
+      <Masthead />
+      <main className="page ruled">
+        <Intro />
+        <Celia />
+        <Candi />
+        <Platform />
+        <Side />
+        <WorkLog />
+        <Toolbox />
         <Contact />
       </main>
       <Footer />

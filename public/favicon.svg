@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="14" fill="#0b0f0e"/>
-  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" fill="none" stroke="#10b981" stroke-opacity="0.45" stroke-width="1.5"/>
-  <!-- Geometric N — no font dependency -->
-  <path d="M18 46 L18 18 L22 18 L42 38 L42 18 L46 18 L46 46 L42 46 L22 26 L22 46 Z" fill="#10b981"/>
+  <rect width="64" height="64" rx="10" fill="#f3efe6"/>
+  <line x1="14" y1="0" x2="14" y2="64" stroke="#b3391b" stroke-opacity="0.55" stroke-width="2"/>
+  <!-- geometric N in ink, no font dependency -->
+  <path d="M22 48 L22 16 L27 16 L44 38 L44 16 L49 16 L49 48 L44 48 L27 26 L27 48 Z" fill="#1d1b17"/>
 </svg>

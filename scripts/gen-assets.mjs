@@ -1,68 +1,47 @@
 // One-off asset generator: renders the social OG image and apple-touch-icon
 // to PNG using sharp, so they don't depend on web fonts at scrape time.
+// Needs Newsreader and IBM Plex Mono installed locally (fontconfig).
 // Run: node scripts/gen-assets.mjs   (outputs into /public)
 import sharp from 'sharp'
-import { writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const pub = join(__dirname, '..', 'public')
 
-// ── OG image (1200×630) ─────────────────────────────────────
+const PAPER = '#f3efe6'
+const INK = '#1d1b17'
+const SOFT = '#5d574c'
+const RULE = '#d5cdbb'
+const ACCENT = '#b3391b'
+const SERIF = 'Newsreader, Georgia, serif'
+const MONO = 'IBM Plex Mono, monospace'
+
+// ── OG image (1200×630), a notebook page ────────────────────
 const og = `
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs>
-    <radialGradient id="glow" cx="28%" cy="40%" r="75%">
-      <stop offset="0%" stop-color="#10b981" stop-opacity="0.20"/>
-      <stop offset="100%" stop-color="#0b0f0e" stop-opacity="0"/>
-    </radialGradient>
-    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="1.4" fill="#10b981" fill-opacity="0.08"/>
-    </pattern>
-  </defs>
+  <rect width="1200" height="630" fill="${PAPER}"/>
+  ${Array.from({ length: 13 }, (_, i) => `<line x1="0" y1="${70 + i * 44}" x2="1200" y2="${70 + i * 44}" stroke="${RULE}" stroke-opacity="0.55"/>`).join('')}
+  <line x1="190" y1="0" x2="190" y2="630" stroke="${ACCENT}" stroke-opacity="0.5" stroke-width="2"/>
 
-  <rect width="1200" height="630" fill="#0b0f0e"/>
-  <rect width="1200" height="630" fill="url(#dots)"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
-  <rect x="6" y="6" width="1188" height="618" rx="20" fill="none" stroke="#1e2724" stroke-width="2"/>
+  <text x="160" y="118" text-anchor="end" font-family="${MONO}" font-size="20" fill="${ACCENT}">§0</text>
+  <text x="160" y="146" text-anchor="end" font-family="${MONO}" font-size="16" fill="${SOFT}">Srinagar</text>
 
-  <!-- terminal prompt line -->
-  <text x="80" y="150" font-family="DejaVu Sans Mono, monospace" font-size="26" fill="#9aa6a2">
-    <tspan fill="#10b981">$</tspan> whoami
-  </text>
+  <text x="232" y="250" font-family="${SERIF}" font-size="124" fill="${INK}">Nasib <tspan font-style="italic">Farooq</tspan></text>
 
-  <!-- name (monospace = on-brand) -->
-  <text x="78" y="265" font-family="DejaVu Sans Mono, monospace" font-size="86" font-weight="bold" fill="#e5e7eb">Nasib Farooq</text>
+  <text x="236" y="340" font-family="${SERIF}" font-size="38" fill="${INK}">AI engineer. I build voice agents and</text>
+  <text x="236" y="388" font-family="${SERIF}" font-size="38" fill="${INK}">retrieval systems for hiring.</text>
 
-  <!-- role -->
-  <text x="82" y="345" font-family="DejaVu Sans Mono, monospace" font-size="42" fill="#34d399">AI Engineer</text>
-
-  <!-- tagline -->
-  <text x="82" y="420" font-family="DejaVu Sans, sans-serif" font-size="30" fill="#9aa6a2">I build production AI systems that listen, reason, and decide.</text>
-
-  <!-- stack chips -->
-  <g font-family="DejaVu Sans Mono, monospace" font-size="22" fill="#9aa6a2">
-    <rect x="80"  y="500" width="150" height="44" rx="9" fill="#0f1513" stroke="#1e2724"/>
-    <text x="100" y="528">Pipecat</text>
-    <rect x="248" y="500" width="170" height="44" rx="9" fill="#0f1513" stroke="#1e2724"/>
-    <text x="268" y="528">LangGraph</text>
-    <rect x="436" y="500" width="110" height="44" rx="9" fill="#0f1513" stroke="#1e2724"/>
-    <text x="456" y="528">RAG</text>
-    <rect x="564" y="500" width="150" height="44" rx="9" fill="#0f1513" stroke="#1e2724"/>
-    <text x="584" y="528">FastAPI</text>
-  </g>
-
-  <!-- url -->
-  <text x="1120" y="585" text-anchor="end" font-family="DejaVu Sans Mono, monospace" font-size="22" fill="#10b981">iamnasib.github.io</text>
+  <text x="236" y="490" font-family="${MONO}" font-size="20" fill="${SOFT}">CELIA · CANDI · ConnectiumAI</text>
+  <text x="236" y="560" font-family="${MONO}" font-size="20" fill="${ACCENT}">iamnasib.github.io</text>
 </svg>`
 
-// ── apple-touch-icon (180×180), geometric N ─────────────────
+// ── apple-touch-icon (180×180) ──────────────────────────────
 const touch = `
 <svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0b0f0e"/>
-  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" fill="none" stroke="#10b981" stroke-opacity="0.45" stroke-width="1.5"/>
-  <path d="M18 46 L18 18 L22 18 L42 38 L42 18 L46 18 L46 46 L42 46 L22 26 L22 46 Z" fill="#10b981"/>
+  <rect width="64" height="64" fill="${PAPER}"/>
+  <line x1="14" y1="0" x2="14" y2="64" stroke="${ACCENT}" stroke-opacity="0.55" stroke-width="2"/>
+  <path d="M22 48 L22 16 L27 16 L44 38 L44 16 L49 16 L49 48 L44 48 L27 26 L27 48 Z" fill="${INK}"/>
 </svg>`
 
 await sharp(Buffer.from(og)).png().toFile(join(pub, 'og-image.png'))
