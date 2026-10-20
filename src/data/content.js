@@ -10,7 +10,6 @@ export const profile = {
   name: 'Nasib Farooq',
   location: 'Srinagar, Kashmir',
   email: 'nasibfarooq@gmail.com',
-  resume: '/Nasib_Farooq_CV.pdf',
   socials: {
     github: 'https://github.com/iamnasib',
     linkedin: 'https://www.linkedin.com/in/iamnasib',

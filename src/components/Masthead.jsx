@@ -8,7 +8,6 @@ export default function Masthead() {
           N. Farooq / working notes
         </a>
         <nav aria-label="Elsewhere" className="flex flex-wrap gap-x-5 gap-y-1">
-          <a className="ink-link" href={profile.resume} download>CV (pdf)</a>
           <a className="ink-link" href={profile.socials.github} target="_blank" rel="noreferrer">GitHub</a>
           <a className="ink-link" href={profile.socials.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
           <a className="ink-link" href={`mailto:${profile.email}`}>Email</a>

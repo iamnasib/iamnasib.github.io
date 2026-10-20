@@ -22,12 +22,6 @@ export default function Contact() {
           {profile.email}
         </a>
       </p>
-
-      <p className="mt-8 font-mono text-xs">
-        <a className="ink-link" href={profile.resume} download>
-          Download my CV (pdf) ↓
-        </a>
-      </p>
     </Entry>
   )
 }

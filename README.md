@@ -26,8 +26,6 @@ src/data/content.js
 
 Edit that file to update text — no need to touch the components.
 
-To update the CV, replace `public/Nasib_Farooq_CV.pdf`.
-
 ## Social / SEO assets
 
 `public/og-image.png` and `public/apple-touch-icon.png` are generated
@@ -69,5 +67,5 @@ src/
     Diagrams.jsx       Inline SVG system diagrams (Fig. 1, Fig. 2)
     Platform, Side, WorkLog, Toolbox, Contact, Footer
 scripts/gen-assets.mjs  Generates favicons + og-image.png (monogram.mjs, type.mjs)
-public/                favicon, OG image, CV, robots.txt, sitemap.xml, .nojekyll
+public/                favicon, OG image, robots.txt, sitemap.xml, .nojekyll
 ```
