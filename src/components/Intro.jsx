@@ -1,4 +1,4 @@
-import { contents, intro, profile } from '../data/content'
+import { contents, intro } from '../data/content'
 import Entry from './Entry'
 
 function Contents() {
@@ -34,10 +34,6 @@ export default function Intro() {
             <p key={i}>{p}</p>
           ))}
         </div>
-
-        <p className="settle mt-8 font-mono text-xs text-accent" style={{ animationDelay: '0.9s' }}>
-          → {profile.status}
-        </p>
       </Entry>
     </div>
   )

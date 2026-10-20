@@ -32,7 +32,7 @@ const og = `
   <text x="236" y="340" font-family="${SERIF}" font-size="38" fill="${INK}">AI engineer. I build voice agents and</text>
   <text x="236" y="388" font-family="${SERIF}" font-size="38" fill="${INK}">retrieval systems for hiring.</text>
 
-  <text x="236" y="490" font-family="${MONO}" font-size="20" fill="${SOFT}">CELIA · CANDI · ConnectiumAI · TRIBUNAL</text>
+  <text x="236" y="490" font-family="${MONO}" font-size="20" fill="${SOFT}">CELIA · CANDI · ConnectiumAI</text>
   <text x="236" y="560" font-family="${MONO}" font-size="20" fill="${ACCENT}">iamnasib.github.io</text>
 </svg>`
 

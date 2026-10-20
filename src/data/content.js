@@ -11,7 +11,6 @@ export const profile = {
   location: 'Srinagar, Kashmir',
   email: 'nasibfarooq@gmail.com',
   resume: '/Nasib_Farooq_CV.pdf',
-  status: 'Open to AI engineering roles and contract work.',
   socials: {
     github: 'https://github.com/iamnasib',
     linkedin: 'https://www.linkedin.com/in/iamnasib',
@@ -21,7 +20,7 @@ export const profile = {
 
 export const intro = [
   "I'm an engineer in Srinagar, Kashmir, and I've been building software since 2021. At Vings Technologies I built AI systems for hiring: a voice agent that interviews candidates, and the search that lets recruiters find the right ones afterwards.",
-  "Today I'm a Bubble.io developer at Hotsourced, and in my own time I'm building TRIBUNAL, a multi-agent reasoning system, in public. These are my notes on the work.",
+  "Today I'm a Senior Bubble Developer at Hotsourced. These are my notes on the work.",
 ]
 
 // ─── §1 CELIA ────────────────────────────────────────────────
@@ -29,15 +28,15 @@ export const intro = [
 export const celia = {
   where: 'Vings Technologies',
   when: '2024–26',
-  stack: ['Pipecat', 'FastAPI', 'Daily', 'OpenAI', 'Modal'],
+  stack: ['Python', 'Pipecat', 'FastAPI', 'Daily.co', 'OpenAI', 'Silero VAD', 'Modal'],
   href: 'https://connectiumai.com',
   body: [
-    'CELIA runs one-on-one interviews by voice. It briefs the candidate, reads the disclaimer, then conducts the interview.',
+    'CELIA runs one-on-one interviews by voice. The candidate joins a Daily.co video call, and CELIA briefs them, reads the disclaimer, then conducts the interview.',
     "Every interview is role-aware. When a session starts, the Bubble.io app sends CELIA its system prompt along with the job's context, so it knows what role it's interviewing for.",
-    "Underneath is a Pipecat pipeline: separate speech-to-text, LLM and text-to-speech services, joined by context aggregators. It runs on hosted infrastructure that restores from a container snapshot, which keeps session start-up fast.",
+    "Underneath is a Pipecat pipeline written in Python. Silero VAD detects when the candidate is speaking, OpenAI handles speech-to-text, the LLM and text-to-speech, and context aggregators carry the conversation between them. The service runs on FastAPI, deployed on Modal, and restores from a container snapshot so each session starts fast.",
   ],
   caption:
-    'One CELIA session. The Bubble.io app sets the role before the conversation starts. Everything inside the dashed line runs in one container restored from a snapshot.',
+    'One CELIA session. The Bubble.io app sets the role before the call starts. Everything inside the dashed line is one FastAPI service on Modal, restored from a container snapshot.',
 }
 
 // ─── §2 CANDI ────────────────────────────────────────────────
@@ -45,13 +44,14 @@ export const celia = {
 export const candi = {
   where: 'Vings Technologies',
   when: '2024–26',
-  stack: ['Qdrant', 'Embeddings', 'Hybrid search', 'Python'],
+  stack: ['Python', 'Qdrant', 'Embeddings', 'Hybrid search', 'Re-ranker'],
   body: [
     'When an interview ends, its transcript goes into Qdrant together with the metadata the Bubble.io app sends: interview ID, status and company.',
     "Recruiters search in plain language, something like “give me the candidates who…”. Each query is filtered to the recruiter's company first, then answered with hybrid retrieval: vector search for meaning, lexical search for exact terms such as a framework or a job title.",
+    'A re-ranker then reorders the matches, so the strongest candidates come back first.',
   ],
   caption:
-    "CANDI's two paths into one Qdrant collection. Searches are filtered to the recruiter's company before retrieval runs.",
+    "CANDI's two paths into one Qdrant collection. Searches are filtered to the recruiter's company before retrieval runs, and the matches are re-ranked before they reach the recruiter.",
 }
 
 // ─── §3 ConnectiumAI, around them ────────────────────────────
@@ -72,27 +72,15 @@ export const platform = {
   ],
 }
 
-// ─── §4 Now building ─────────────────────────────────────────
+// ─── §4 On the side ──────────────────────────────────────────
 
-export const tribunal = {
-  body: [
-    "A multi-agent system where agents argue a question adversarially under a supervisor, then reach a verdict grounded in sources. I'm writing it myself, one phase at a time, and building it in public.",
-  ],
-  // Set done: true as each phase ships.
-  phases: [
-    { title: 'One agent behind a FastAPI service', done: false },
-    { title: 'Three agents debating over shared state, streamed with SSE', done: false },
-    { title: 'Six agents under a supervisor graph, with LangGraph checkpointing', done: false },
-    { title: 'Joining the debate by voice through Pipecat, with interrupt and resume', done: false },
-    { title: 'A React arena for watching the debate', done: false },
-    { title: 'Grounding answers with RAG over ChromaDB', done: false },
-    { title: 'Polish and public launch', done: false },
-  ],
+export const side = {
+  body: "Outside work I keep learning the way I always have: by building small things.",
 }
 
 export const minivibe = {
   href: 'https://github.com/iamnasib/MiniVibe',
-  body: 'An open-source LangGraph agent that generates web apps from a prompt. Next on its list: SQLite checkpointing, human-in-the-loop review through interrupt(), one file per output, and tool calling.',
+  body: 'One of them is open source: MiniVibe, a LangGraph agent that generates web apps from a prompt. It was an early project for learning how agentic workflows hold together.',
 }
 
 // ─── §5 Work log ─────────────────────────────────────────────
@@ -100,7 +88,7 @@ export const minivibe = {
 export const work = [
   {
     when: 'Apr 2026 – now',
-    role: 'Bubble Developer',
+    role: 'Senior Bubble Developer',
     company: 'Hotsourced',
     companyHref: 'https://hotsourced.io',
     where: 'Remote · London',
@@ -111,6 +99,7 @@ export const work = [
     role: 'Bubble Developer (Lead) / AI Engineer',
     company: 'Vings Technologies',
     where: 'Remote · California',
+    aside: 'still contributing part-time',
     note: 'Led ConnectiumAI across AI engineering in Python and the Bubble.io platform. CELIA, CANDI and the platform work above (§1–3) are from here.',
   },
   {
@@ -153,7 +142,7 @@ export const toolbox = [
 ]
 
 export const education = [
-  { what: 'Bachelor of Computer Applications', where: 'CASET College of Science and Engineering, Srinagar', when: '2022–25' },
+  { what: 'Bachelor of Computer Applications', where: 'Kashmir University (CASET College of Science and Engineering)', when: '2022–25' },
   { what: 'Certification, Data Science', where: 'CodeWithHarry', when: '2025' },
   { what: 'Certification, Full Stack Development', where: 'Softstacks Technologies', when: '2020–21' },
 ]
@@ -163,7 +152,7 @@ export const contents = [
   { id: 'celia', mark: '§1', label: 'CELIA' },
   { id: 'candi', mark: '§2', label: 'CANDI' },
   { id: 'connectium', mark: '§3', label: 'ConnectiumAI' },
-  { id: 'building', mark: '§4', label: 'Now building' },
+  { id: 'side', mark: '§4', label: 'On the side' },
   { id: 'work', mark: '§5', label: 'Work log' },
   { id: 'toolbox', mark: '§6', label: 'Toolbox & education' },
   { id: 'contact', mark: '§7', label: 'Contact' },

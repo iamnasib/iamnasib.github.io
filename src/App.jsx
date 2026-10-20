@@ -2,7 +2,7 @@ import Masthead from './components/Masthead'
 import Intro from './components/Intro'
 import { Candi, Celia } from './components/CaseStudies'
 import Platform from './components/Platform'
-import Building from './components/Building'
+import Side from './components/Side'
 import WorkLog from './components/WorkLog'
 import Toolbox from './components/Toolbox'
 import Contact from './components/Contact'
@@ -17,7 +17,7 @@ export default function App() {
         <Celia />
         <Candi />
         <Platform />
-        <Building />
+        <Side />
         <WorkLog />
         <Toolbox />
         <Contact />

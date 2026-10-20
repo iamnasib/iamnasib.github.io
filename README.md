@@ -42,7 +42,6 @@ The script renders with locally installed fonts, so install Newsreader and
 IBM Plex Mono first (e.g. the `.woff` files from `@fontsource/newsreader`
 and `@fontsource/ibm-plex-mono` copied into `~/.fonts`).
 
-To tick off a TRIBUNAL phase, set `done: true` on it in `src/data/content.js`.
 
 ## Deployment
 
@@ -66,7 +65,7 @@ src/
     Masthead, Intro    Top bar, name, contents
     CaseStudies.jsx    §1 CELIA, §2 CANDI
     Diagrams.jsx       Inline SVG system diagrams (Fig. 1, Fig. 2)
-    Platform, Building, WorkLog, Toolbox, Contact, Footer
+    Platform, Side, WorkLog, Toolbox, Contact, Footer
 scripts/gen-assets.mjs  Generates og-image.png + apple-touch-icon.png
 public/                favicon, OG image, CV, robots.txt, sitemap.xml, .nojekyll
 ```

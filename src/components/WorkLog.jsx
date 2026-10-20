@@ -23,7 +23,10 @@ export default function WorkLog() {
               <h3 className="text-[1.2rem] font-medium leading-snug">
                 {job.role}, <Company job={job} />
               </h3>
-              <p className="font-mono text-xs text-ink-soft">{job.where}</p>
+              <p className="font-mono text-xs text-ink-soft">
+                {job.where}
+                {job.aside && <> · {job.aside}</>}
+              </p>
               {job.note && <p className="mt-3 text-pretty">{job.note}</p>}
               {job.clients && (
                 <dl className="mt-3 space-y-2">

@@ -37,9 +37,9 @@ export function CeliaDiagram({ caption }) {
     <figure className="fig">
       <div className="fig-scroll">
         <svg
-          viewBox="0 0 640 262"
+          viewBox="0 0 640 272"
           role="img"
-          aria-label="A CELIA session: the Bubble.io app sends the system prompt and job context to the LLM; candidate speech flows through VAD, speech-to-text, the LLM and text-to-speech inside a snapshot-restored container, and the spoken reply returns to the candidate."
+          aria-label="A CELIA session: the Bubble.io app sends the system prompt and job context to the LLM. The candidate's speech, over a Daily.co call, flows through Silero VAD, OpenAI speech-to-text, the OpenAI LLM and OpenAI text-to-speech, inside one FastAPI service on Modal restored from a container snapshot, and the spoken reply returns to the candidate."
         >
           <Arrowhead id="celia-arrow" />
 
@@ -49,11 +49,11 @@ export function CeliaDiagram({ caption }) {
           <text x="425" y="80">system prompt</text>
           <text x="425" y="95">+ job context</text>
 
-          {/* snapshot-restored container */}
-          <text x="160" y="100" className="accent-text" style={{ fontSize: 11 }}>
-            Modal · snapshot-restored container
+          {/* one FastAPI service on Modal, restored from a snapshot */}
+          <rect x="160" y="108" width="410" height="110" rx="4" className="wire accent-stroke" strokeDasharray="5 4" />
+          <text x="172" y="208" className="accent-text" style={{ fontSize: 11 }}>
+            FastAPI on Modal · restored from a container snapshot
           </text>
-          <rect x="160" y="108" width="410" height="96" rx="4" className="wire accent-stroke" strokeDasharray="5 4" />
 
           {/* candidate in */}
           <Node x={14} y={130} w={96} label="candidate" />
@@ -71,12 +71,20 @@ export function CeliaDiagram({ caption }) {
           <circle cx="463" cy="150" r="3.5" className="dot" />
           <Node x={478} y={130} w={64} label="TTS" />
 
-          <circle cx="180" cy="189" r="3.5" className="dot" />
-          <text x="190" y="193" className="soft" style={{ fontSize: 11 }}>context aggregator</text>
+          {/* who provides each step */}
+          <g className="soft" style={{ fontSize: 10.5 }} textAnchor="middle">
+            <text x="210" y="186">Silero</text>
+            <text x="302" y="186">OpenAI</text>
+            <text x="415" y="186">OpenAI</text>
+            <text x="510" y="186">OpenAI</text>
+          </g>
 
           {/* reply back out */}
-          <polyline points="542,150 604,150 604,236 62,236 62,172" className="wire" markerEnd={arrow} />
-          <text x="333" y="229" textAnchor="middle">spoken reply, over Daily</text>
+          <polyline points="542,150 604,150 604,240 62,240 62,172" className="wire" markerEnd={arrow} />
+          <text x="333" y="233" textAnchor="middle">spoken reply, over Daily.co</text>
+
+          <circle cx="18" cy="262" r="3.5" className="dot" />
+          <text x="28" y="266" className="soft" style={{ fontSize: 11 }}>context aggregator</text>
         </svg>
       </div>
       <p className="fig-hint">Swipe sideways for the whole figure →</p>
@@ -91,9 +99,9 @@ export function CandiDiagram({ caption }) {
     <figure className="fig">
       <div className="fig-scroll">
         <svg
-          viewBox="0 0 640 252"
+          viewBox="0 0 640 262"
           role="img"
-          aria-label="CANDI: when an interview ends, the transcript plus interview ID, status and company is embedded and upserted into Qdrant; when a recruiter searches, the query is filtered by company, run as vector plus lexical search against Qdrant, and ranked candidates return to the recruiter."
+          aria-label="CANDI: when an interview ends, the transcript plus interview ID, status and company is embedded and upserted into Qdrant. When a recruiter searches, the query is filtered by company and run as vector plus lexical search against Qdrant; the top matches pass through a re-ranker and the ranked candidates return to the recruiter."
         >
           <Arrowhead id="candi-arrow" />
 
@@ -121,9 +129,12 @@ export function CandiDiagram({ caption }) {
           <line x1="470" y1="182" x2="518" y2="182" className="wire" markerEnd={arrow} />
           <text x="494" y="174" textAnchor="middle">search</text>
 
-          {/* results back */}
-          <polyline points="573,204 573,232 77,232 77,202" className="wire" markerEnd={arrow} />
-          <text x="325" y="225" textAnchor="middle">ranked candidates</text>
+          {/* results back, through the re-ranker */}
+          <polyline points="573,204 573,236 392,236" className="wire" markerEnd={arrow} />
+          <text x="482" y="229" textAnchor="middle">top matches</text>
+          <Node x={290} y={220} w={100} h={32} label="re-ranker" />
+          <polyline points="290,236 77,236 77,202" className="wire" markerEnd={arrow} />
+          <text x="183" y="229" textAnchor="middle">ranked candidates</text>
         </svg>
       </div>
       <p className="fig-hint">Swipe sideways for the whole figure →</p>
