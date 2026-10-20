@@ -1,17 +1,26 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-slate-bg: #0b0f0e;
-  --color-slate-surface: #0f1513;
-  --color-slate-elev: #131a18;
-  --color-emerald-accent: #10b981;
-  --color-emerald-soft: #34d399;
-  --color-ink: #e5e7eb;
-  --color-ink-dim: #9aa6a2;
-  --color-line: #1e2724;
+  --color-paper: #f3efe6;
+  --color-paper-deep: #e9e3d6;
+  --color-ink: #1d1b17;
+  --color-ink-soft: #5d574c;
+  --color-rule: #d5cdbb;
+  --color-accent: #b3391b;
 
-  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-serif: 'Newsreader', 'Iowan Old Style', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: light;
+  --pad: 1.25rem;
+  --margin-w: 11rem;
+  --gutter: 3.5rem;
+  --measure: 40rem;
+}
+@media (min-width: 640px) {
+  :root { --pad: 2rem; }
 }
 
 html {
@@ -19,102 +28,191 @@ html {
 }
 
 body {
-  background-color: var(--color-slate-bg);
+  background-color: var(--color-paper);
+  /* faint paper grain */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.11 0 0 0 0 0.10 0 0 0 0 0.09 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   color: var(--color-ink);
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
-
-/* Headings carry the monospace "terminal" voice */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-mono);
-}
-
-/* Dotted grid backdrop */
-.bg-grid {
-  background-image: radial-gradient(
-    circle at 1px 1px,
-    rgba(16, 185, 129, 0.08) 1px,
-    transparent 0
-  );
-  background-size: 32px 32px;
-}
-
-/* Emerald glow utility */
-.glow {
-  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.15),
-    0 18px 60px -20px rgba(16, 185, 129, 0.35);
-}
-
-/* Scroll reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
-}
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
-}
-
-/* Orchestrated hero entrance (staggered via inline animation-delay) */
-@keyframes enter-up {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: none; }
-}
-.enter {
-  opacity: 0;
-  animation: enter-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-/* Blinking cursor */
-@keyframes blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
-.cursor {
-  display: inline-block;
-  width: 0.6ch;
-  background: var(--color-emerald-accent);
-  animation: blink 1.1s step-end infinite;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: var(--color-slate-bg); }
-::-webkit-scrollbar-thumb {
-  background: var(--color-line);
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover { background: #2a3531; }
 
 ::selection {
-  background: rgba(16, 185, 129, 0.25);
-  color: #ecfdf5;
+  background: rgba(179, 57, 27, 0.18);
 }
 
-/* Visible keyboard focus over the dark theme */
 :focus-visible {
-  outline: 2px solid var(--color-emerald-accent);
-  outline-offset: 2px;
-  border-radius: 4px;
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
-/* Respect users who prefer reduced motion */
+/* ── Page frame ──────────────────────────────────────────── */
+
+.page {
+  position: relative;
+  max-width: calc(var(--margin-w) + var(--gutter) + var(--measure) + 2 * var(--pad));
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+/* The red margin rule of a notebook page, drawn down on load. */
+@media (min-width: 900px) {
+  .page.ruled::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--pad) + var(--margin-w) + var(--gutter) / 2);
+    width: 1px;
+    background: var(--color-accent);
+    opacity: 0.4;
+    transform-origin: top;
+    animation: draw-rule 1.6s cubic-bezier(0.6, 0.05, 0.2, 1) both;
+  }
+}
+
+@keyframes draw-rule {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+/* ── Entries: margin notes on the left, writing on the right ── */
+
+.entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 1rem;
+  padding-block: 4rem;
+  border-top: 1px solid var(--color-rule);
+}
+
+.entry-margin {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: var(--color-ink-soft);
+}
+
+/* Intro: on small screens the contents list comes after the writing */
+.entry-margin.after { order: 2; }
+
+@media (min-width: 900px) {
+  .entry-margin.after { order: 0; }
+  .entry {
+    grid-template-columns: var(--margin-w) minmax(0, var(--measure));
+    column-gap: var(--gutter);
+    padding-block: 5.5rem;
+  }
+  .entry-margin {
+    text-align: right;
+    position: sticky;
+    top: 2.5rem;
+    align-self: start;
+  }
+}
+
+/* Writing */
+.prose-note > * + * { margin-top: 1.1em; }
+.prose-note p { text-wrap: pretty; }
+
+.entry-title {
+  font-size: clamp(1.9rem, 4vw, 2.5rem);
+  line-height: 1.12;
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+  margin-bottom: 1.5rem;
+}
+.entry-title em {
+  font-style: italic;
+  color: var(--color-ink-soft);
+}
+
+/* Ink links: hairline underline that turns red-pencil on hover */
+.ink-link {
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-rule);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.ink-link:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
+
+/* Figures */
+.fig {
+  margin-block: 2.5rem;
+}
+.fig svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--color-ink);
+}
+.fig svg text {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  fill: currentColor;
+}
+.fig svg .soft { fill: var(--color-ink-soft); }
+.fig svg .accent-text { fill: var(--color-accent); }
+.fig svg .node { fill: var(--color-paper); stroke: currentColor; stroke-width: 1.25; }
+.fig svg .wire { fill: none; stroke: currentColor; stroke-width: 1.25; }
+.fig svg .accent-stroke { stroke: var(--color-accent); }
+.fig svg .dot { fill: currentColor; }
+/* On narrow screens the figure scrolls sideways instead of shrinking text */
+.fig-scroll { overflow-x: auto; }
+.fig-scroll svg { min-width: 560px; }
+.fig-hint {
+  display: none;
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-accent);
+}
+@media (max-width: 599px) {
+  .fig-hint { display: block; }
+}
+.fig figcaption {
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: var(--color-ink-soft);
+}
+
+/* Notebook checkbox */
+.box {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 1px solid var(--color-ink);
+  flex-shrink: 0;
+  transform: translateY(0.12em);
+}
+.box.done {
+  background:
+    linear-gradient(45deg, transparent 44%, var(--color-accent) 45% 55%, transparent 56%),
+    linear-gradient(-45deg, transparent 44%, var(--color-accent) 45% 55%, transparent 56%);
+}
+
+/* Intro entrance: the name and lede settle in after the rule draws */
+.settle {
+  animation: settle 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes settle {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-  .cursor { animation: none; }
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
+  .page.ruled::before,
+  .settle { animation: none; }
 }

@@ -2,13 +2,16 @@
 //  All site content lives here. Edit this file to update text.
 // ─────────────────────────────────────────────────────────────
 
+export const site = {
+  updated: 'October 2026',
+}
+
 export const profile = {
   name: 'Nasib Farooq',
-  role: 'AI Engineer',
-  tagline: 'I build production AI systems that listen, reason, and decide.',
-  location: 'Srinagar, India',
+  location: 'Srinagar, Kashmir',
   email: 'nasibfarooq@gmail.com',
   resume: '/Nasib_Farooq_CV.pdf',
+  status: 'Open to AI engineering roles and contract work.',
   socials: {
     github: 'https://github.com/iamnasib',
     linkedin: 'https://www.linkedin.com/in/iamnasib',
@@ -16,189 +19,152 @@ export const profile = {
   },
 }
 
-export const about = {
-  paragraphs: [
-    "I'm a 24-year-old developer from Kashmir, building since 2021. I combine no-code efficiency with custom engineering — RAG pipelines, voice agents, and multi-agent systems on the AI side; Bubble.io for rapid production builds on the platform side.",
-    "At Vings Technologies I led AI and platform engineering for ConnectiumAI, an AI-driven hiring platform. I built CELIA, a production conversational voice interviewer running on Pipecat, and designed the candidate RAG pipeline — alongside a full assessment engine, scheduling, billing, and third-party integrations.",
-    "I ship products that solve real problems, not demos. The rare Bubble-plus-AI combination is where I move fastest.",
+export const intro = [
+  "I'm an engineer in Srinagar, Kashmir, and I've been building software since 2021. At Vings Technologies I built AI systems for hiring: a voice agent that interviews candidates, and the search that lets recruiters find the right ones afterwards.",
+  "Today I'm a Bubble.io developer at Hotsourced, and in my own time I'm building TRIBUNAL, a multi-agent reasoning system, in public. These are my notes on the work.",
+]
+
+// ─── §1 CELIA ────────────────────────────────────────────────
+
+export const celia = {
+  where: 'Vings Technologies',
+  when: '2024–26',
+  stack: ['Pipecat', 'FastAPI', 'Daily', 'OpenAI', 'Modal'],
+  href: 'https://connectiumai.com',
+  body: [
+    'CELIA runs one-on-one interviews by voice. It briefs the candidate, reads the disclaimer, then conducts the interview.',
+    "Every interview is role-aware. When a session starts, the Bubble.io app sends CELIA its system prompt along with the job's context, so it knows what role it's interviewing for.",
+    "Underneath is a Pipecat pipeline: separate speech-to-text, LLM and text-to-speech services, joined by context aggregators. It runs on hosted infrastructure that restores from a container snapshot, which keeps session start-up fast.",
   ],
-  facts: [
-    { label: 'Based in', value: 'Srinagar, India' },
-    { label: 'Building since', value: '2021' },
-    { label: 'Currently', value: 'Hotsourced.io' },
-    { label: 'Focus', value: 'AI Engineering' },
+  caption:
+    'One CELIA session. The Bubble.io app sets the role before the conversation starts. Everything inside the dashed line runs in one container restored from a snapshot.',
+}
+
+// ─── §2 CANDI ────────────────────────────────────────────────
+
+export const candi = {
+  where: 'Vings Technologies',
+  when: '2024–26',
+  stack: ['Qdrant', 'Embeddings', 'Hybrid search', 'Python'],
+  body: [
+    'When an interview ends, its transcript goes into Qdrant together with the metadata the Bubble.io app sends: interview ID, status and company.',
+    "Recruiters search in plain language, something like “give me the candidates who…”. Each query is filtered to the recruiter's company first, then answered with hybrid retrieval: vector search for meaning, lexical search for exact terms such as a framework or a job title.",
+  ],
+  caption:
+    "CANDI's two paths into one Qdrant collection. Searches are filtered to the recruiter's company before retrieval runs.",
+}
+
+// ─── §3 ConnectiumAI, around them ────────────────────────────
+
+export const platform = {
+  href: 'https://connectiumai.com',
+  tagline: 'An AI-driven platform where conversations become verifiable proof of skills.',
+  body: [
+    'CELIA and CANDI live inside ConnectiumAI, a hiring and assessment platform. I led its development at Vings across both sides: the Python AI services, and the product itself on Bubble.io and its integrations. The AI was one part of it. This is the rest:',
+  ],
+  items: [
+    { term: 'Assessments', detail: 'A configurable engine for text, video and hybrid interviews, with dynamically generated questions, automated evaluation and feedback reports.' },
+    { term: 'Live calls', detail: 'Daily.co interviews with recording, transcription and AI-generated summaries.' },
+    { term: 'Email insight', detail: 'A Microsoft Graph integration that shows how candidates and companies have been engaging over email.' },
+    { term: 'Scheduling', detail: 'Real-time scheduling on the Calendly APIs, built around interviewer availability.' },
+    { term: 'Billing', detail: 'A modular billing system with pricing plans, offers and date-based controls.' },
+    { term: 'Roles', detail: 'Onboarding and role-based workflows for candidates, interviewers and companies.' },
   ],
 }
 
-// ─── EXPERIENCE ──────────────────────────────────────────────
+// ─── §4 Now building ─────────────────────────────────────────
 
-export const experience = [
+export const tribunal = {
+  body: [
+    "A multi-agent system where agents argue a question adversarially under a supervisor, then reach a verdict grounded in sources. I'm writing it myself, one phase at a time, and building it in public.",
+  ],
+  // Set done: true as each phase ships.
+  phases: [
+    { title: 'One agent behind a FastAPI service', done: false },
+    { title: 'Three agents debating over shared state, streamed with SSE', done: false },
+    { title: 'Six agents under a supervisor graph, with LangGraph checkpointing', done: false },
+    { title: 'Joining the debate by voice through Pipecat, with interrupt and resume', done: false },
+    { title: 'A React arena for watching the debate', done: false },
+    { title: 'Grounding answers with RAG over ChromaDB', done: false },
+    { title: 'Polish and public launch', done: false },
+  ],
+}
+
+export const minivibe = {
+  href: 'https://github.com/iamnasib/MiniVibe',
+  body: 'An open-source LangGraph agent that generates web apps from a prompt. Next on its list: SQLite checkpointing, human-in-the-loop review through interrupt(), one file per output, and tool calling.',
+}
+
+// ─── §5 Work log ─────────────────────────────────────────────
+
+export const work = [
   {
+    when: 'Apr 2026 – now',
     role: 'Bubble Developer',
     company: 'Hotsourced',
     companyHref: 'https://hotsourced.io',
-    location: 'Remote · London, UK',
-    period: 'April 2026 – Present',
-    points: [
-      'Building and maintaining production Bubble.io applications.',
-    ],
+    where: 'Remote · London',
+    note: 'Building and maintaining production Bubble.io applications.',
   },
   {
+    when: 'Aug 2024 – Mar 2026',
     role: 'Bubble Developer (Lead) / AI Engineer',
     company: 'Vings Technologies',
-    location: 'Remote · CA, US',
-    period: 'Aug 2024 – March 2026',
-    points: [
-      'Led development of ConnectiumAI — an AI-driven hiring and assessment platform — across both AI system engineering (Python) and product platform engineering (Bubble.io + integrations).',
-      'Built CELIA, a production conversational AI interviewer using the Pipecat pipeline, FastAPI, and hosted model infrastructure with container snapshot loading for low-latency sessions.',
-      'Designed a RAG pipeline for intelligent candidate profile search using embeddings and vector retrieval.',
-      'Architected a configurable AI Assessment Engine supporting text, video, and hybrid interviews with dynamic question generation, automated evaluation, and feedback reports.',
-      'Integrated Daily.co for live interviews with recording, transcription, and AI-generated summaries.',
-      'Implemented Microsoft Graph API to surface candidate–company email engagement insights.',
-      'Designed real-time scheduling workflows using Calendly APIs and interviewer availability logic.',
-      'Engineered a modular billing system with pricing plans, offers, and date-based controls.',
-      'Built onboarding and role-based workflows for candidates, interviewers, and companies.',
-    ],
+    where: 'Remote · California',
+    note: 'Led ConnectiumAI across AI engineering in Python and the Bubble.io platform. CELIA, CANDI and the platform work above (§1–3) are from here.',
   },
   {
+    when: 'Jun 2023 – now',
     role: 'Bubble.io Developer',
     company: 'Freelance',
-    location: 'Remote',
-    period: 'June 2023 – Present',
-    points: [
-      'CMG Compass: Business assessment MVP with domain-based COMPASS evaluation, financial analysis using NAICS benchmarks, Claude AI-generated reports, and Stripe payments.',
-      'SmrtCoach: Coaching SaaS with SmrtAssessment chat, session scheduling, event management, and OpenAI-integrated learning modules.',
-      'Kathy: AI-powered real estate listing platform — auto-generates property descriptions using GPT.',
-      'KochiFitness: Coaching platform with 1:1 chat, video conferencing, and a creator hub (Kochi Konnect).',
-      'BookDeskriptor: OpenAI-integrated book description generator with plan-based usage limits.',
-      'Published Bubble.io plugins: Unique ID Generator and Copy to Clipboard.',
-      '12+ additional client engagements — feature builds, API integrations, UI enhancements, bug fixes.',
+    where: 'Remote',
+    note: 'Over a dozen client engagements: feature builds, API integrations, UI work, debugging. The main ones:',
+    clients: [
+      { name: 'CMG Compass', detail: 'A business assessment MVP with COMPASS scoring, financial analysis against NAICS benchmarks, Claude-written reports and Stripe payments.' },
+      { name: 'SmrtCoach', detail: 'A coaching SaaS with assessment chat, session scheduling, events, to-dos and OpenAI-powered learning modules.' },
+      { name: 'Kathy', detail: 'A real estate listing platform that writes property descriptions with GPT.' },
+      { name: 'KochiFitness', detail: 'A coaching platform with one-on-one chat, video calls and a creator hub, Kochi Konnect.' },
+      { name: 'BookDeskriptor', detail: 'OpenAI-generated book titles and descriptions in two modes, with plan-based usage limits.' },
+      { name: 'Plugins', detail: 'Published Bubble.io plugins, including a Unique ID Generator and Copy to Clipboard.' },
     ],
   },
   {
+    when: 'Feb 2023 – now',
     role: 'Full Stack Developer',
     company: 'Freelance',
-    location: 'Remote',
-    period: 'Feb 2023 – Present',
-    points: [
-      'Farukhsons Enterprises: Full-stack web app (React, Django REST, Tailwind) with service listings, project showcases, inquiry management, admin dashboard, and a public bill-making tool.',
-      'Posttrex: Social media web app.',
-      'Shagoo Designs: Static website for an interior design business.',
+    where: 'Remote',
+    clients: [
+      { name: 'Farukhsons Enterprises', detail: 'React, Django REST and Tailwind app for a contracting business: services, project showcase, inquiries, an admin dashboard and a public bill-making tool.' },
+      { name: 'Posttrex', detail: 'A social media web app.' },
+      { name: 'Shagoo Designs', detail: 'A static site for an interior design business.' },
     ],
   },
 ]
 
-// ─── PROJECTS ────────────────────────────────────────────────
+// ─── §6 Toolbox & education ──────────────────────────────────
 
-export const projects = [
-  {
-    name: 'ConnectiumAI',
-    type: 'Flagship · AI Recruitment Platform',
-    tagline: 'An AI-driven platform where conversations become verifiable proof of skills.',
-    status: 'Live',
-    href: 'https://connectiumai.com',
-    summary:
-      'Built at Vings Technologies — an end-to-end AI hiring platform. I owned both the AI engineering and the product platform, shipping two AI subsystems and the full surrounding infrastructure.',
-    subsystems: [
-      {
-        name: 'CELIA',
-        kicker: 'Production voice interviewer',
-        points: [
-          'Conducts one-on-one AI interviews entirely by voice — briefs the candidate, reads the disclaimer, then runs the session.',
-          'Built on a Pipecat pipeline with separate STT, LLM, and TTS, using hosted model infrastructure with container snapshot loading for low-latency startup.',
-          'The Bubble.io frontend sends the system prompt with the job role context, making each interview role-aware.',
-        ],
-      },
-      {
-        name: 'CANDI',
-        kicker: 'RAG candidate search',
-        points: [
-          'On interview completion, ingests the transcript with structured metadata (interview ID, status, company) into a vector store.',
-          'Recruiters search in plain language; the pipeline runs hybrid retrieval — embeddings plus lexical search — with company-level filtering.',
-        ],
-      },
-    ],
-    platformWork: [
-      'AI Assessment Engine: text, video, and hybrid interviews with dynamic question generation, automated evaluation, and feedback reports.',
-      'Daily.co integration: live interviews with recording, transcription, and AI-generated summaries.',
-      'Microsoft Graph API: surfaces candidate–company email engagement insights for interviewers.',
-      'Calendly APIs: real-time scheduling workflows with interviewer availability logic.',
-      'Modular billing system with pricing plans, offers, and date-based controls.',
-      'Onboarding and role-based workflows for candidates, interviewers, and companies.',
-    ],
-    stack: ['Pipecat', 'FastAPI', 'Python', 'RAG', 'Embeddings', 'Daily.co', 'Microsoft Graph', 'Calendly', 'Bubble.io', 'Stripe'],
-  },
-  {
-    name: 'TRIBUNAL',
-    type: 'Multi-agent adversarial reasoning',
-    status: 'Building in public',
-    href: null,
-    summary:
-      'A multi-agent system where specialised agents debate a question adversarially under a supervisor before reaching a grounded verdict. Built in public, phase by phase.',
-    points: [
-      'Single-agent FastAPI core → three-agent shared-state debate over SSE → six-agent supervisor graph with LangGraph checkpointing.',
-      'Voice join via Pipecat interrupt/resume, React debate-arena UI, and a ChromaDB RAG grounding layer.',
-    ],
-    stack: ['LangGraph', 'FastAPI', 'Pipecat', 'React', 'ChromaDB', 'SSE'],
-  },
-  {
-    name: 'MiniVibe',
-    type: 'Open-source · AI web-app generator',
-    status: 'Open source',
-    href: 'https://github.com/iamnasib/MiniVibe',
-    summary:
-      'A LangGraph-based agent that generates web apps from a prompt. Roadmap: SQLite checkpointing, human-in-the-loop via interrupt(), per-file output, tool calling.',
-    points: [],
-    stack: ['LangGraph', 'Python', 'Agents'],
-  }
+export const toolbox = [
+  { group: 'AI', items: ['LLM integration', 'RAG pipelines', 'embeddings and vector search', 'prompt engineering', 'Pipecat', 'LangGraph', 'OpenAI API'] },
+  { group: 'Data', items: ['scikit-learn', 'NumPy', 'pandas', 'model evaluation', 'feature engineering'] },
+  { group: 'Backend', items: ['Python', 'FastAPI', 'Django', 'Django REST', 'Flask', 'Node.js', 'Express'] },
+  { group: 'Frontend', items: ['React', 'Tailwind CSS', 'HTML', 'CSS'] },
+  { group: 'No-code', items: ['Bubble.io', 'plugin development', 'Microsoft Graph', 'Daily.co', 'Calendly', 'Stripe'] },
+  { group: 'Storage', items: ['Qdrant', 'ChromaDB', 'PostgreSQL', 'MongoDB', 'SQL'] },
 ]
-
-// ─── SKILLS ──────────────────────────────────────────────────
-
-export const skills = [
-  {
-    group: 'AI / ML',
-    items: [
-      'LLM Integration', 'RAG Pipelines', 'Prompt Engineering',
-      'Embeddings', 'Vector Search', 'Pipecat', 'LangGraph',
-      'Scikit-Learn', 'NumPy', 'Pandas', 'Model Evaluation',
-      'Feature Engineering', 'OpenAI API',
-    ],
-  },
-  {
-    group: 'Backend & APIs',
-    items: ['Python', 'FastAPI', 'Django', 'Django REST', 'Flask', 'Node.js', 'Express', 'REST APIs'],
-  },
-  {
-    group: 'Frontend',
-    items: ['React', 'Tailwind CSS', 'HTML', 'CSS'],
-  },
-  {
-    group: 'No-Code & Integrations',
-    items: ['Bubble.io', 'Plugin Development', 'FlutterFlow', 'Microsoft Graph', 'Daily.co', 'Calendly', 'Stripe'],
-  },
-  {
-    group: 'Databases',
-    items: ['MongoDB', 'SQL', 'PostgreSQL', 'Qdrant', 'ChromaDB'],
-  },
-]
-
-// ─── EDUCATION ───────────────────────────────────────────────
 
 export const education = [
-  {
-    degree: 'Bachelor of Computer Applications (BCA)',
-    institution: 'CASET College of Science and Engineering, Srinagar',
-    period: 'Oct 2022 – 2025',
-  },
-  {
-    degree: 'Certification — Data Science',
-    institution: 'CodeWithHarry',
-    period: 'Apr 2025 – Nov 2025',
-  },
-  {
-    degree: 'Certification — Full Stack Development',
-    institution: 'Softstacks Technologies Pvt. Ltd.',
-    period: 'Dec 2020 – Jul 2021',
-  },
+  { what: 'Bachelor of Computer Applications', where: 'CASET College of Science and Engineering, Srinagar', when: '2022–25' },
+  { what: 'Certification, Data Science', where: 'CodeWithHarry', when: '2025' },
+  { what: 'Certification, Full Stack Development', where: 'Softstacks Technologies', when: '2020–21' },
+]
+
+// Order and numbering of the notebook entries (used by the contents list).
+export const contents = [
+  { id: 'celia', mark: '§1', label: 'CELIA' },
+  { id: 'candi', mark: '§2', label: 'CANDI' },
+  { id: 'connectium', mark: '§3', label: 'ConnectiumAI' },
+  { id: 'building', mark: '§4', label: 'Now building' },
+  { id: 'work', mark: '§5', label: 'Work log' },
+  { id: 'toolbox', mark: '§6', label: 'Toolbox & education' },
+  { id: 'contact', mark: '§7', label: 'Contact' },
 ]
