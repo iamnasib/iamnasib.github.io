@@ -1,6 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="10" fill="#f3efe6"/>
-  <line x1="14" y1="0" x2="14" y2="64" stroke="#b3391b" stroke-opacity="0.55" stroke-width="2"/>
-  <!-- geometric N in ink, no font dependency -->
-  <path d="M22 48 L22 16 L27 16 L44 38 L44 16 L49 16 L49 48 L44 48 L27 26 L27 48 Z" fill="#1d1b17"/>
+  <rect width="64" height="64" rx="12" fill="#f3efe6"/>
+  <line x1="7.5" y1="0" x2="7.5" y2="64" stroke="#b3391b" stroke-width="3"/>
+  <g transform="translate(11.76 44.46) scale(0.3543)" fill="#1d1b17">
+    <path d="M4.1 -2.8L11.9 -5.5L11.9 -61.4L3.5 -65L3.5 -67.6L26.9 -67.6L60.8 -19.1L60.8 -62.2L52.3 -64.9L52.3 -67.6L74.9 -67.6L74.9 -64.9L67.2 -62.2L67.2 0.5L57.9 0.5L18.3 -56.9L18.3 -5.5L26.7 -2.8L26.7 0L4.1 0L4.1 -2.8"/>
+    <path d="M120.6 -46.4L125.3 -46.4L117.3 -20.3L112.6 -20.3L114.7 -30.5L99.1 -30.5L91.4 -5L98.2 -2.6L97.4 0L69.7 0L70.4 -2.6L78.5 -5.2L96 -62.7L89.2 -65L89.9 -67.6L133.3 -67.6L139.9 -70.8L141.8 -70.8L138 -47.7L134.4 -47.7L131.9 -61.7L108.7 -61.7L100.9 -36.2L116.4 -36.2L120.6 -46.4"/>
+  </g>
 </svg>

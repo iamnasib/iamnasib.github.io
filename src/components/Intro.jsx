@@ -29,8 +29,26 @@ export default function Intro() {
           Nasib <em className="italic">Farooq</em>
         </h1>
 
-        <div className="settle prose-note mt-10 text-[1.3rem] leading-[1.55]" style={{ animationDelay: '0.7s' }}>
-          {intro.map((p, i) => (
+        {/* Current role first: a two-line ledger under the name */}
+        <dl
+          className="settle mt-8 grid grid-cols-[4.5rem_minmax(0,1fr)] items-baseline gap-x-4 gap-y-2 border-y border-rule py-5"
+          style={{ animationDelay: '0.65s' }}
+        >
+          <dt className="font-mono text-xs uppercase tracking-[0.12em] text-accent">Now</dt>
+          <dd className="text-[clamp(1.35rem,3vw,1.75rem)] leading-snug">
+            {intro.now.role},{' '}
+            <a className="ink-link italic" href={intro.now.href} target="_blank" rel="noreferrer">
+              {intro.now.org}
+            </a>
+          </dd>
+          <dt className="font-mono text-xs uppercase tracking-[0.12em] text-ink-soft">Before</dt>
+          <dd className="text-[1.15rem] leading-snug text-ink-soft">
+            {intro.before.role}, <span className="italic">{intro.before.org}</span>
+          </dd>
+        </dl>
+
+        <div className="settle prose-note mt-8 text-[1.2rem] leading-[1.6]" style={{ animationDelay: '0.8s' }}>
+          {intro.paragraphs.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </div>

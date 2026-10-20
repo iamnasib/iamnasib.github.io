@@ -10,7 +10,6 @@ export const profile = {
   name: 'Nasib Farooq',
   location: 'Srinagar, Kashmir',
   email: 'nasibfarooq@gmail.com',
-  resume: '/Nasib_Farooq_CV.pdf',
   socials: {
     github: 'https://github.com/iamnasib',
     linkedin: 'https://www.linkedin.com/in/iamnasib',
@@ -18,14 +17,20 @@ export const profile = {
   },
 }
 
-export const intro = [
-  "I'm an engineer in Srinagar, Kashmir, and I've been building software since 2021. At Vings Technologies I built AI systems for hiring: a voice agent that interviews candidates, and the search that lets recruiters find the right ones afterwards.",
-  "Today I'm a Senior Bubble Developer at Hotsourced. These are my notes on the work.",
-]
+export const intro = {
+  // Shown right under the name, so the current role is the first thing read.
+  now: { role: 'Senior Bubble Developer', org: 'Hotsourced', href: 'https://hotsourced.io' },
+  before: { role: 'AI Engineer', org: 'Vings Technologies' },
+  paragraphs: [
+    "I've been building software in Srinagar, Kashmir, since 2021. Today I build and maintain production Bubble.io applications at Hotsourced.",
+    "Before that, at Vings Technologies, I built the AI inside ConnectiumAI, a hiring platform: CELIA, a voice agent that interviews candidates, and CANDI, the search that lets recruiters find the right ones afterwards. These are my notes on that work.",
+  ],
+}
 
 // ─── §1 CELIA ────────────────────────────────────────────────
 
 export const celia = {
+  partOf: 'ConnectiumAI',
   where: 'Vings Technologies',
   when: '2024–26',
   stack: ['Python', 'Pipecat', 'FastAPI', 'Daily.co', 'OpenAI', 'Silero VAD', 'Modal'],
@@ -42,6 +47,7 @@ export const celia = {
 // ─── §2 CANDI ────────────────────────────────────────────────
 
 export const candi = {
+  partOf: 'ConnectiumAI',
   where: 'Vings Technologies',
   when: '2024–26',
   stack: ['Python', 'Qdrant', 'Embeddings', 'Hybrid search', 'Re-ranker'],
@@ -151,7 +157,7 @@ export const education = [
 export const contents = [
   { id: 'celia', mark: '§1', label: 'CELIA' },
   { id: 'candi', mark: '§2', label: 'CANDI' },
-  { id: 'connectium', mark: '§3', label: 'ConnectiumAI' },
+  { id: 'connectium', mark: '§3', label: 'Rest of ConnectiumAI' },
   { id: 'side', mark: '§4', label: 'On the side' },
   { id: 'work', mark: '§5', label: 'Work log' },
   { id: 'toolbox', mark: '§6', label: 'Toolbox & education' },
