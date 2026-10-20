@@ -18,10 +18,15 @@ export const profile = {
   },
 }
 
-export const intro = [
-  "I'm an engineer in Srinagar, Kashmir, and I've been building software since 2021. At Vings Technologies I built AI systems for hiring: a voice agent that interviews candidates, and the search that lets recruiters find the right ones afterwards.",
-  "Today I'm a Senior Bubble Developer at Hotsourced. These are my notes on the work.",
-]
+export const intro = {
+  // Shown right under the name, so the current role is the first thing read.
+  now: { role: 'Senior Bubble Developer', org: 'Hotsourced', href: 'https://hotsourced.io' },
+  before: { role: 'AI Engineer', org: 'Vings Technologies' },
+  paragraphs: [
+    "I've been building software in Srinagar, Kashmir, since 2021. Today I build and maintain production Bubble.io applications at Hotsourced.",
+    "Before that, at Vings Technologies, I built AI systems for hiring: CELIA, a voice agent that interviews candidates, and CANDI, the search that lets recruiters find the right ones afterwards. These are my notes on that work.",
+  ],
+}
 
 // ─── §1 CELIA ────────────────────────────────────────────────
 

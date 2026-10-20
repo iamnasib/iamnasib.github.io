@@ -37,10 +37,12 @@ from `scripts/gen-assets.mjs`:
 node scripts/gen-assets.mjs
 ```
 
-Re-run after changing the name or intro so the share card stays in sync.
-The script renders with locally installed fonts, so install Newsreader and
-IBM Plex Mono first (e.g. the `.woff` files from `@fontsource/newsreader`
-and `@fontsource/ibm-plex-mono` copied into `~/.fonts`).
+It also writes `favicon.svg` and `favicon.ico` (the "NF" monogram).
+Re-run after changing the name or role so the share card stays in sync.
+All text is traced to paths from the `@fontsource` packages (see
+`scripts/type.mjs`), so no fonts need to be installed. When the icons
+change, bump the `?v=` on the icon links in `index.html` so browsers
+don't keep showing a cached favicon.
 
 
 ## Deployment
@@ -66,6 +68,6 @@ src/
     CaseStudies.jsx    §1 CELIA, §2 CANDI
     Diagrams.jsx       Inline SVG system diagrams (Fig. 1, Fig. 2)
     Platform, Side, WorkLog, Toolbox, Contact, Footer
-scripts/gen-assets.mjs  Generates og-image.png + apple-touch-icon.png
+scripts/gen-assets.mjs  Generates favicons + og-image.png (monogram.mjs, type.mjs)
 public/                favicon, OG image, CV, robots.txt, sitemap.xml, .nojekyll
 ```
