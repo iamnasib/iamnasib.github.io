@@ -24,13 +24,14 @@ export const intro = {
   before: { role: 'AI Engineer', org: 'Vings Technologies' },
   paragraphs: [
     "I've been building software in Srinagar, Kashmir, since 2021. Today I build and maintain production Bubble.io applications at Hotsourced.",
-    "Before that, at Vings Technologies, I built AI systems for hiring: CELIA, a voice agent that interviews candidates, and CANDI, the search that lets recruiters find the right ones afterwards. These are my notes on that work.",
+    "Before that, at Vings Technologies, I built the AI inside ConnectiumAI, a hiring platform: CELIA, a voice agent that interviews candidates, and CANDI, the search that lets recruiters find the right ones afterwards. These are my notes on that work.",
   ],
 }
 
 // ─── §1 CELIA ────────────────────────────────────────────────
 
 export const celia = {
+  partOf: 'ConnectiumAI',
   where: 'Vings Technologies',
   when: '2024–26',
   stack: ['Python', 'Pipecat', 'FastAPI', 'Daily.co', 'OpenAI', 'Silero VAD', 'Modal'],
@@ -47,6 +48,7 @@ export const celia = {
 // ─── §2 CANDI ────────────────────────────────────────────────
 
 export const candi = {
+  partOf: 'ConnectiumAI',
   where: 'Vings Technologies',
   when: '2024–26',
   stack: ['Python', 'Qdrant', 'Embeddings', 'Hybrid search', 'Re-ranker'],
@@ -156,7 +158,7 @@ export const education = [
 export const contents = [
   { id: 'celia', mark: '§1', label: 'CELIA' },
   { id: 'candi', mark: '§2', label: 'CANDI' },
-  { id: 'connectium', mark: '§3', label: 'ConnectiumAI' },
+  { id: 'connectium', mark: '§3', label: 'Rest of ConnectiumAI' },
   { id: 'side', mark: '§4', label: 'On the side' },
   { id: 'work', mark: '§5', label: 'Work log' },
   { id: 'toolbox', mark: '§6', label: 'Toolbox & education' },

@@ -65,8 +65,9 @@ const og = `
   ${text(fonts.serif, 'AI Engineer, ', 340, 394, 32, SOFT).svg}
   ${text(fonts.serifItalic, 'Vings Technologies', 340 + fonts.serif.getAdvanceWidth('AI Engineer, ', 32), 394, 32, SOFT).svg}
 
-  ${text(fonts.mono, 'CELIA · CANDI · ConnectiumAI', 236, 490, 20, SOFT).svg}
-  ${text(fonts.mono, 'iamnasib.github.io', 236, 560, 20, ACCENT).svg}
+  ${text(fonts.mono, 'built CELIA and CANDI, the AI inside ConnectiumAI', 340, 432, 18, SOFT).svg}
+
+  ${text(fonts.mono, 'iamnasib.github.io', 236, 548, 20, ACCENT).svg}
 </svg>`
 
 await sharp(Buffer.from(og)).png().toFile(join(pub, 'og-image.png'))

@@ -6,6 +6,8 @@ function Meta({ item, extra }) {
   return (
     <div className="mt-1 space-y-3">
       <p>
+        <span className="text-ink">part of {item.partOf}</span>
+        <br />
         {item.where}
         <br />
         {item.when}
